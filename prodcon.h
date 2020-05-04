@@ -6,16 +6,16 @@
 #define BUFSIZE         2048
 
 // The maximum total simultaneous clients allowed
-#define MAX_CLIENTS     6
+#define MAX_CLIENTS     512
 
 // The maximum simultaneous producer clients allowed
-#define MAX_PROD    	4
+#define MAX_PROD    	480
 
 // The maximum simultaneous consumer clients allowed
-#define MAX_CON     	4
+#define MAX_CON     	480
 
 // Some clients may wait (seconds) before introducing themseleves
-#define SLOW_CLIENT     4
+#define SLOW_CLIENT     3
 
 // Slow clients may be rejected if they do not respond in (seconds)
 #define REJECT_TIME     2
@@ -26,7 +26,7 @@
 #define REJECT		"ERROR: REJECTED"
 
 // Each item consists of random number of bytes between 1 and MAX_LETTERS.
-#define MAX_LETTERS     1000000
+#define MAX_LETTERS     1000000000
 
 // function prototypes
 int connectsock( char *host, char *service, char *protocol );

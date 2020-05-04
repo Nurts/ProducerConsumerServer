@@ -302,9 +302,7 @@ void* producer_handler(void* ptr){
     
     free( (int*) ptr);
     
-    mutex_increment(&prod_mutex, &prod_amt, -1);
-    mutex_increment(&total_mutex, &client_amt, -1);
-    mutex_increment(&total_prod_mutex, &total_produced, 1);
+    
 }
 
 void* consumer_handler(void* ptr){
@@ -347,6 +345,10 @@ void* consumer_handler(void* ptr){
 
     close(ssock);
     free( (int*) ptr);
+
+    mutex_increment(&prod_mutex, &prod_amt, -1);
+    mutex_increment(&total_mutex, &client_amt, -1);
+    mutex_increment(&total_prod_mutex, &total_produced, 1);
 
     mutex_increment(&con_mutex, &con_amt, -1);
     mutex_increment(&total_mutex, &client_amt, -1);
